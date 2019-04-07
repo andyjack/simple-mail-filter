@@ -19,9 +19,7 @@ while(<>) {
         if ( $msgid =~ /@/ ) {
             ($host) = $msgid =~ /@(.+?)>/;
         }
-        else {
-            $host = '*no host in msgid*';
-        }
+        $host //= '*no host in msgid*';
         print "$date ";
         print BOLD, RGB050, "DELIVERED", RESET;
         print " $host -> $recip\n";
